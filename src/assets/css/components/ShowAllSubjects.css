@@ -1,0 +1,9 @@
+#removeBTN{
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+}
+#showSubjectDiv{
+    padding: 2em;
+    width: 50%;
+}

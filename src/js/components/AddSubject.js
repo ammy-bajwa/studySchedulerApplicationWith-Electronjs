@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import uuid from 'uuid';
+import moment from 'moment';
 
 
 
@@ -31,13 +32,13 @@ class AddSubject extends React.Component {
     } else if(subjectName !=='Choose...' && subjectCustomName == ''){
       subject = subjectName;
     }
+    let date = moment().format('MMMM Do YYYY, h:mm:ss a');
     document.getElementById("erroAlertDiv").style.display = 'none'
     subjects.push({
-      id:uuid(),subject,subjectNote,subjectTimeToStudy
+      id:uuid(),subject,subjectNote,subjectTimeToStudy,date
     });
     let parseSubjects = JSON.stringify(subjects);
     localStorage.setItem('subjects',parseSubjects);
-    console.log(localStorage);
   }
   render() {
     return (
