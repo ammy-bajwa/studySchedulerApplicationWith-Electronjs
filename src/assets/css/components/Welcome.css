@@ -1,0 +1,8 @@
+#welcomeCardBody{
+font-size: 2em;
+padding: 2.5em;
+}
+#wellcomeBTN{
+    display: flex;
+    justify-content: center;
+}

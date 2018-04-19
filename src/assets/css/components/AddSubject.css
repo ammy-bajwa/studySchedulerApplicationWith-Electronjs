@@ -1,0 +1,7 @@
+#addBTN{
+    display: flex;
+    justify-content: center;
+}
+#erroAlertDiv{
+    display: none;
+}
