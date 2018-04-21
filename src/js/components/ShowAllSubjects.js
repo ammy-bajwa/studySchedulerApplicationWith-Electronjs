@@ -25,10 +25,10 @@ class ShowAllSubjects extends React.Component {
         text-center
         bg-dark p-3 m-3">Show All Subjects</h4>
         {allSubjects.length == 0 ? <div className="card">
-        <div className="card-body">
-          <h4 className="card-title text-center">There Is No Subject</h4>
-          <p className="card-text text-center">Please Add A Subject.</p>
-        </div>
+          <div className="card-body">
+            <h4 className="card-title text-center">There Is No Subject</h4>
+            <p className="card-text text-center">Please Add A Subject.</p>
+          </div>
       </div> : JSON.parse(localStorage.getItem('subjects')).map((subjectObj,index)=>{
           return <div className="container-fluid border border-dark rounded"
           id="showSubjectDiv"

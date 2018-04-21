@@ -1,0 +1,8 @@
+#timerDiv{
+    padding-left: 45%;
+    margin: 1em;
+}
+#timerBTN{
+    display: flex;
+    justify-content: center;
+}
