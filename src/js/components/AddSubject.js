@@ -20,9 +20,6 @@ class AddSubject extends React.Component {
     let subjectNote = e.target.elements.inputNote.value;
     let subjectTimeToStudy = e.target.elements.inputStudyTime.value.trim();
     let subject;
-    e.target.elements.inputCustomSubject.value = '';
-    e.target.elements.inputNote.value = '';
-    e.target.elements.inputStudyTime.value = '';
     if(subjectName =='Choose...' && subjectCustomName == ''){
       return   document.getElementById("erroAlertDiv").style.display = 'block';
     } else if(subjectName !=='Choose...' && subjectCustomName !== ''){
@@ -32,6 +29,10 @@ class AddSubject extends React.Component {
     } else if(subjectName !=='Choose...' && subjectCustomName == ''){
       subject = subjectName;
     }
+    document.getElementById("inputSubject").selectedIndex = 0 ;
+    e.target.elements.inputCustomSubject.value = '';
+    e.target.elements.inputNote.value = '';
+    e.target.elements.inputStudyTime.value = '';
     let date = moment().format('MMMM Do YYYY, h:mm:ss a');
     document.getElementById("erroAlertDiv").style.display = 'none'
     subjects.push({
