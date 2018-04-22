@@ -13,9 +13,6 @@ class App extends React.Component {
     return (
       <div>
         <Wellcome />
-        <ShowAllSubjects />
-        <AddSubject />
-        <Subject subjectObj = {subjectObj}/>
       </div>
     );
   }

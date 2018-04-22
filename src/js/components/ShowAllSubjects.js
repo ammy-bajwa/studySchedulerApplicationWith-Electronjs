@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Wellcome from './Wellcome';
-import AddSubject from './AddSubject';
-import Subject from './Subject';
 import Header from './Header';
 
 

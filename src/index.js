@@ -1,11 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import './assets/css/App.css';
-import Wellcome from './js/components/Wellcome';
-import AddSubject from './js/components/AddSubject';
-import ShowAllSubjects from './js/components/ShowAllSubjects';
-import Subject from './js/components/Subject';
 import App from './js/App';
+import AppRoute from './js/Routes/Router';
+
 
 
 
@@ -53,4 +51,4 @@ document.body.appendChild(root);
 // Now we can render our application into it
 let subjectObj = {"id":"19c2de01-d95b-4543-8199-8bd430cbe78e",subject:"Islamiat",subjectNote:"ejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwr",subjectTimeToStudy:0,"date":"April 21st 2018, 11:37:59 pm"}
 
-render( <App />, document.getElementById('root'));
+render( <AppRoute />, document.getElementById('root'));
