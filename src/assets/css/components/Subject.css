@@ -1,8 +1,23 @@
-#timerDiv{
-    padding-left: 45%;
-    margin: 1em;
-}
 #timerBTN{
     display: flex;
     justify-content: center;
+}
+#subjectDivLeft{
+    width: 50%;
+    height: 20%;
+    float: left;
+}
+#subjectDivRight{
+    width: 50%;
+    height: 20%;
+    float: right;
+}
+#subjectCardDiv{
+    height: 100%;
+}
+#subjectOkBTN{
+    display: flex;
+    justify-content: center;
+    margin-top:20em;
+    margin-bottom:2em;
 }
