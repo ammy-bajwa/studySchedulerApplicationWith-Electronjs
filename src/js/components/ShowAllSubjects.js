@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import App from '../App';
+import Wellcome from './Wellcome';
+import AddSubject from './AddSubject';
+import Subject from './Subject';
 import Header from './Header';
 
 
+
 let allSubjects = JSON.parse(localStorage.getItem('subjects'));
+
 
 class ShowAllSubjects extends React.Component {
   removeSubject = (id) => {
@@ -13,7 +17,6 @@ class ShowAllSubjects extends React.Component {
     });
     let parseSubjects = JSON.stringify(subjects);
     localStorage.setItem('subjects',parseSubjects);
-    render(<App />, document.getElementById('root'));
   }
   render() {
     return (
@@ -33,7 +36,7 @@ class ShowAllSubjects extends React.Component {
           return <div className="container-fluid border border-dark rounded"
           id="showSubjectDiv"
           key={index}>
-               <h4 className="text-center">Subject No {index+1}</h4>
+           <h4 className="text-center">Subject No {index+1}</h4>
           <div>
           <div className="container-fluid">          
            <h4 className="text-center p-2">{subjectObj.subject}</h4>
@@ -56,5 +59,4 @@ class ShowAllSubjects extends React.Component {
     );
   }
 }
-
 export default ShowAllSubjects;

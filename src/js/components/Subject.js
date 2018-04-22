@@ -3,10 +3,21 @@ import Header from './Header';
 
 var timerInterval;
 
+let allSubjects = JSON.parse(localStorage.getItem('subjects'));
+
+
 class Subject extends React.Component {
+    // constructor(){
+    //     super();
+    //     // console.log(this.props.match.params.id);
+    // //    let subjectObj = allSubjects.filter((subject)=>{
+    // //     return subject.id == this.props.match.params.id
+    // //    })
+    // }
+
     timerHandler = (value) => {
         if(value == 'start') {
-            let totalSeconds = this.props.subjectObj.subjectTimeToStudy;
+            let totalSeconds = subjectObj.subjectTimeToStudy;
              timerInterval = window.setInterval(()=>{
                 --totalSeconds;
                 let totalMinutes = Math.ceil((totalSeconds / 60) );
@@ -19,7 +30,7 @@ class Subject extends React.Component {
         } else if(value == 'stop'){
             clearInterval(timerInterval);
         }
-           
+        
     }
   render() {
     return (
@@ -31,7 +42,7 @@ class Subject extends React.Component {
             text-center
             bg-dark p-3 m-3">Subject</h4>
         </div>   
-        <h4 className="text text-primary text-center">Subject Is {this.props.subjectObj.subject}</h4>
+        <h4 className="text text-primary text-center">Subject Is </h4>
         <div className="border m-2">
         <div className="mt-5 p-2" id="subjectDivLeft">
                
