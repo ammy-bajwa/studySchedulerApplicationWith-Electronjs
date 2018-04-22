@@ -19,6 +19,7 @@ class AddSubject extends React.Component {
     let subjectCustomName = e.target.elements.inputCustomSubject.value;
     let subjectNote = e.target.elements.inputNote.value;
     let subjectTimeToStudy = e.target.elements.inputStudyTime.value.trim();
+    subjectTimeToStudy = subjectTimeToStudy *3600;
     let subject;
     if(subjectName =='Choose...' && subjectCustomName == ''){
       return   document.getElementById("erroAlertDiv").style.display = 'block';
