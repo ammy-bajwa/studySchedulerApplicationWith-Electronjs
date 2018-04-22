@@ -15,10 +15,9 @@ class Subject extends React.Component {
             note:null,
             time:null
         }
-        
     }
     // {"id":"e564bd3e-7287-47ca-99b8-45a003377e85","subject":"Islamiat","subjectNote":"ewr","subjectTimeToStudy":10800,"date":"April 22nd 2018, 6:36:11 pm"}
-    stateFun(){
+    componentDidMount(){
         let subjectId = this.props.match.params.id;
         console.log(subjectId)
         let allSubjects = JSON.parse(localStorage.getItem('subjects'));
@@ -33,14 +32,14 @@ class Subject extends React.Component {
                  }))
             }
         });
-        console.log(this.state);
     }
-    
+    componentWillUnmount(){
+        clearInterval(timerInterval);
+    }
     timerHandler = (value) => {
         console.log(this.props);
-        this.stateFun()
         if(value == 'start') {
-            let totalSeconds = this.state.subjectStudyTime;
+            let totalSeconds = this.state.time;
              timerInterval = window.setInterval(()=>{
                 --totalSeconds;
                 let totalMinutes = Math.ceil((totalSeconds / 60) );
@@ -65,7 +64,7 @@ class Subject extends React.Component {
             text-center
             bg-dark p-3 m-3">Subject</h4>
         </div>   
-        <h4 className="text text-primary text-center">Subject Is {this.state.subject}</h4>
+        <h4 className="text text-primary text-center">Subject Is {this.state.subjectName}</h4>
         <div className="border m-2">
         <div className="mt-5 p-2" id="subjectDivLeft">
                
@@ -83,7 +82,7 @@ class Subject extends React.Component {
     <h5 className="text text-secondary text-center pt-6">Here Is Your Note For Subject</h5>
     <div className="card">
         <div className="card-body text-center" id="subjectCardDiv">
-           {this.state.subjectNote}
+           {this.state.note}
         </div>
     </div>
     </div>
