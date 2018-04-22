@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import { render } from 'react-dom';
+import AppRoute from '../Routes/Router';
 import uuid from 'uuid';
 import moment from 'moment';
 
@@ -42,6 +44,7 @@ class AddSubject extends React.Component {
     });
     let parseSubjects = JSON.stringify(subjects);
     localStorage.setItem('subjects',parseSubjects);
+    return render( <AppRoute />, document.getElementById('root'));
   }
   render() {
     return (

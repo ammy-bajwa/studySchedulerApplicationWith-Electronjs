@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Header from './Header';
 
 class Wellcome extends React.Component {
@@ -14,8 +15,8 @@ class Wellcome extends React.Component {
       </div>
     </div>
     <div className="container-fluid m-4" id="wellcomeBTN">
-      <button className="btn btn-primary m-2">Add A Subject</button>
-      <button className="btn btn-primary m-2">Show All Subjects</button>
+    <Link to="/add"><button className="btn btn-primary m-2">Add A Subject</button></Link>
+    <Link to="/show"><button className="btn btn-primary m-2">Show All Subjects</button></Link>
     </div>
       </div>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Header from './Header';
 
 var timerInterval;
@@ -7,17 +8,39 @@ let allSubjects = JSON.parse(localStorage.getItem('subjects'));
 
 
 class Subject extends React.Component {
-    // constructor(){
-    //     super();
-    //     // console.log(this.props.match.params.id);
-    // //    let subjectObj = allSubjects.filter((subject)=>{
-    // //     return subject.id == this.props.match.params.id
-    // //    })
-    // }
-
+    constructor(){
+        super();
+        this.state = {
+            subjectName: null,
+            note:null,
+            time:null
+        }
+        
+    }
+    // {"id":"e564bd3e-7287-47ca-99b8-45a003377e85","subject":"Islamiat","subjectNote":"ewr","subjectTimeToStudy":10800,"date":"April 22nd 2018, 6:36:11 pm"}
+    stateFun(){
+        let subjectId = this.props.match.params.id;
+        console.log(subjectId)
+        let allSubjects = JSON.parse(localStorage.getItem('subjects'));
+        allSubjects.forEach((subjectObj)=>{
+            console.log(`:${subjectObj.id}`);
+            if(`:${subjectObj.id}` == subjectId){
+                console.log('ok');
+                 this.setState(()=>({
+                    subjectName:subjectObj.subject,
+                    note:subjectObj.subjectNote,
+                    time:subjectObj.subjectTimeToStudy
+                 }))
+            }
+        });
+        console.log(this.state);
+    }
+    
     timerHandler = (value) => {
+        console.log(this.props);
+        this.stateFun()
         if(value == 'start') {
-            let totalSeconds = subjectObj.subjectTimeToStudy;
+            let totalSeconds = this.state.subjectStudyTime;
              timerInterval = window.setInterval(()=>{
                 --totalSeconds;
                 let totalMinutes = Math.ceil((totalSeconds / 60) );
@@ -42,7 +65,7 @@ class Subject extends React.Component {
             text-center
             bg-dark p-3 m-3">Subject</h4>
         </div>   
-        <h4 className="text text-primary text-center">Subject Is </h4>
+        <h4 className="text text-primary text-center">Subject Is {this.state.subject}</h4>
         <div className="border m-2">
         <div className="mt-5 p-2" id="subjectDivLeft">
                
@@ -60,14 +83,14 @@ class Subject extends React.Component {
     <h5 className="text text-secondary text-center pt-6">Here Is Your Note For Subject</h5>
     <div className="card">
         <div className="card-body text-center" id="subjectCardDiv">
-            {this.props.subjectObj.subjectNote}
+           {this.state.subjectNote}
         </div>
     </div>
     </div>
         </div>    
           
             <div id="subjectOkBTN">
-                <button className="btn btn-danger p-3">Ok</button>              
+                <Link to="/show"><button className="btn btn-danger p-3">Ok</button></Link>              
             </div>
         </div>
     );

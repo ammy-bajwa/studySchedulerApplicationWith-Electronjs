@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import {Link} from 'react-router-dom';
+import AppRoute from '../Routes/Router';
 import Header from './Header';
 
 
@@ -14,6 +16,7 @@ class ShowAllSubjects extends React.Component {
     });
     let parseSubjects = JSON.stringify(subjects);
     localStorage.setItem('subjects',parseSubjects);
+    render( <AppRoute />, document.getElementById('root'));
   }
   render() {
     return (
@@ -36,7 +39,7 @@ class ShowAllSubjects extends React.Component {
            <h4 className="text-center">Subject No {index+1}</h4>
           <div>
           <div className="container-fluid">          
-           <h4 className="text-center p-2">{subjectObj.subject}</h4>
+           <Link to={`/subject/:${subjectObj.id}`}><h4 className="text-center p-2">{subjectObj.subject}</h4></Link>
            <h5 className="text-center">{subjectObj.date}</h5>
            <div id="removeBTN">
             <button className="btn btn-danger"
