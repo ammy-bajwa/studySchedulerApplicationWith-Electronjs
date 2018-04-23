@@ -35,13 +35,13 @@ class Navbar extends React.Component {
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav p-2">
       <li className="nav-item active">
-        <Link className="nav-a" to="/">Home <span className="sr-only">(current)</span></Link>
+        <Link className="nav-a" to="/"><button className="btn btn-light">Home</button> <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-a" to="/add">Add Subject</Link>
+        <Link className="nav-a" to="/add"><button className="btn btn-light">Add Subject</button></Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-a" to="/show">Show All Subject</Link>
+        <Link className="nav-a" to="/show"><button className="btn btn-light">Show All Subject</button></Link>
       </li>
     </ul>
   </div>
