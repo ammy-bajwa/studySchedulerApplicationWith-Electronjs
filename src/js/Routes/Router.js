@@ -8,10 +8,12 @@ import App from '../App';
 
 
 
-if(localStorage['subjects']){
-    console.log('subjects are present')
+if(!localStorage['subjects']){
+    let subjects = [];
+    let parseSubjects = JSON.stringify(subjects);
+    localStorage.setItem('subjects',parseSubjects);
 }
-let subjectObj = {"id":"19c2de01-d95b-4543-8199-8bd430cbe78e",subject:"Islamiat",subjectNote:"ejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwrejhaksdjhlaksdhlashdlahdslwr",subjectTimeToStudy:4,"date":"April 21st 2018, 11:37:59 pm"}
+
 export const history = createHistory();
 const AppRoute = () => {
     return (
