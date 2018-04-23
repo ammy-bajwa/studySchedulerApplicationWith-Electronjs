@@ -33,12 +33,12 @@ class Subject extends React.Component {
     componentWillUnmount(){
         this.setState(()=>({time:watchSeconds}));
         let allSubjects = JSON.parse(localStorage.getItem('subjects'));
-        console.log(allSubjects);
         allSubjects.map((subjectObj)=>{
             if(`:${subjectObj.id}` == subjectId){
-               subjectObj.subjectTimeToStudy = this.state.time;
+               subjectObj.subjectTimeToStudy = watchSeconds;
             }
         });
+        console.log(allSubjects);
         let parseSubjects = JSON.stringify(allSubjects);
         localStorage.setItem('subjects',parseSubjects);
         clearInterval(timerInterval);
@@ -58,6 +58,14 @@ class Subject extends React.Component {
             },1000);
         } else if(value == 'stop'){
            this.setState(()=>({time:watchSeconds}));
+           let allSubjects = JSON.parse(localStorage.getItem('subjects'));
+           allSubjects.map((subjectObj)=>{
+               if(`:${subjectObj.id}` == subjectId){
+                  subjectObj.subjectTimeToStudy = this.state.time;
+               }
+           });
+           let parseSubjects = JSON.stringify(allSubjects);
+           localStorage.setItem('subjects',parseSubjects);
             clearInterval(timerInterval);
         }
         
