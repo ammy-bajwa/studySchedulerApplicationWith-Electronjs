@@ -28,8 +28,8 @@ class Navbar extends React.Component {
     return (
       <div className="container-fluid">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <b className="navbar-brand">Alpha Coders</b>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <b className="navbar-brand">Alpha Coders</b>
+    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
   <div className="collapse navbar-collapse" id="navbarNav">
@@ -46,7 +46,6 @@ class Navbar extends React.Component {
     </ul>
   </div>
 </nav>
-      
       </div>
     );
   }

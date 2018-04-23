@@ -25,9 +25,9 @@ class AddSubject extends React.Component {
     subjectTimeToStudy = subjectTimeToStudy *3600;
     let subject;
     if(subjectName =='Choose...' && subjectCustomName == ''){
-      return   document.getElementById("erroAlertDiv").style.display = 'block';
+      return   document.getElementById("errorAlertDiv").style.display = 'block';
     } else if(subjectName !=='Choose...' && subjectCustomName !== ''){
-      return   document.getElementById("erroAlertDiv").style.display = 'block';
+      return   document.getElementById("errorAlertDiv").style.display = 'block';
     } else if(subjectName =='Choose...' && subjectCustomName !== ''){
       subject = subjectCustomName;
     } else if(subjectName !=='Choose...' && subjectCustomName == ''){
@@ -38,7 +38,7 @@ class AddSubject extends React.Component {
     e.target.elements.inputNote.value = '';
     e.target.elements.inputStudyTime.value = '';
     let date = moment().format('MMMM Do YYYY, h:mm:ss a');
-    document.getElementById("erroAlertDiv").style.display = 'none'
+    document.getElementById("errorAlertDiv").style.display = 'none'
     subjects.push({
       id:uuid(),subject,subjectNote,subjectTimeToStudy,date
     });
@@ -48,15 +48,15 @@ class AddSubject extends React.Component {
   }
   render() {
     return (
-      <div>
-      <Header />
+      <div className="container-fluid">
+        <Header />
         <div className="container-fluid rounded p-3">
         <h4 className="rounded 
         text-light
         text-center
         bg-dark p-3 m-3">Add Subject</h4>
-        <form className="pt-4" onSubmit={this.addSubjectFormHandler}>
-        <div className="alert alert-danger" id="erroAlertDiv">
+        <form className="pt-3" onSubmit={this.addSubjectFormHandler}>
+        <div className="alert alert-danger" id="errorAlertDiv">
         <strong>Subject Name!</strong> Please Add Subject Name Currectly.
          </div>
           <div className="form-row">
