@@ -1,12 +1,12 @@
 {
-  "name": "basic-electron-react-boilerplate",
+  "name": "study-schedular-app",
   "version": "0.7.0",
-  "description": "Minimal and modern react+electron+webpack boilerplate",
+  "description": "Simple study schedular application",
   "author": "Phillip Barbiero",
-  "homepage": "https://github.com/pbarbiero/basic-electron-react-boilerplate",
+  "homepage": "https://github.com/ammy-bajwa/studySchedulerApplicationWith-Electronjs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pbarbiero/basic-electron-react-boilerplate.git"
+    "url": "git@github.com:ammy-bajwa/studySchedulerApplicationWith-Electronjs.git"
   },
   "license": "MIT",
   "main": "main.js",

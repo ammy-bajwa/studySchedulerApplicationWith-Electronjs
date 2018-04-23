@@ -7,15 +7,35 @@ import Header from './Header';
 
 
 let allSubjects = JSON.parse(localStorage.getItem('subjects'));
-
+let subjectAbsense = true;
 
 class ShowAllSubjects extends React.Component {
+  state = {
+    subjects:[]
+  }
+  componentDidMount(){
+    if(!localStorage['subjects']){
+        let subjects = [];
+        let parseSubjects = JSON.stringify(subjects);
+        localStorage.setItem('subjects',parseSubjects);
+      } if(this.state.length == 0 ){
+        subjectAbsense = true;
+      }
+        let allSubjects = JSON.parse(localStorage.getItem('subjects'));
+        this.setState(()=>({subjects:allSubjects}));  
+  }
+  componentWillMount(){
+    this.setState(()=>{subjects:[]});
+  }
   removeSubject = (id) => {
-    let subjects = allSubjects.filter((subjectObj)=>{
+    let filteredSubjects = this.state.subjects.filter((subjectObj)=>{
       return subjectObj.id !== id;
     });
-    let parseSubjects = JSON.stringify(subjects);
-    localStorage.setItem('subjects',parseSubjects);
+    let parseSubjects = JSON.stringify(filteredSubjects);
+    localStorage.setItem('subjects',parseSubjects); 
+    let allSubjects = JSON.parse(localStorage.getItem('subjects'));
+    this.setState(()=>({subjects:allSubjects}));
+    console.log(filteredSubjects);
     render( <AppRoute />, document.getElementById('root'));
   }
   render() {
@@ -27,12 +47,12 @@ class ShowAllSubjects extends React.Component {
         text-light
         text-center
         bg-dark p-3 m-3">Show All Subjects</h4>
-        {allSubjects.length == 0 ? <div className="card">
+        {this.state.subjects.length == 0 ? <div className="card">
           <div className="card-body">
             <h4 className="card-title text-center">There Is No Subject</h4>
             <p className="card-text text-center">Please Add A Subject.</p>
           </div>
-      </div> : JSON.parse(localStorage.getItem('subjects')).map((subjectObj,index)=>{
+      </div> : this.state.subjects.map((subjectObj,index)=>{
           return <div className="container-fluid border border-dark rounded"
           id="showSubjectDiv"
           key={index}>

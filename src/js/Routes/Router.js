@@ -8,11 +8,6 @@ import App from '../App';
 
 
 
-if(!localStorage['subjects']){
-    let subjects = [];
-    let parseSubjects = JSON.stringify(subjects);
-    localStorage.setItem('subjects',parseSubjects);
-}
 
 export const history = createHistory();
 const AppRoute = () => {

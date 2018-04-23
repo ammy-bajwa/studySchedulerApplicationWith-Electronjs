@@ -44,7 +44,7 @@ class AddSubject extends React.Component {
     });
     let parseSubjects = JSON.stringify(subjects);
     localStorage.setItem('subjects',parseSubjects);
-    return render( <AppRoute />, document.getElementById('root'));
+    render( <AppRoute />, document.getElementById('root'));
   }
   render() {
     return (
